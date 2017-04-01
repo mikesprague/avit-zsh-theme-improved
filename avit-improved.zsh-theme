@@ -1,10 +1,10 @@
-# AVIT ZSH Theme
+# Avit Improved Zsh Theme
 
 PROMPT='
 $(_user_host)${_current_dir} $(git_prompt_info) $(_ruby_version)
-%{$fg[$CARETCOLOR]%}▶%{$resetcolor%} '
+%{$fg[$CARETCOLOR]%}❱%{$resetcolor%} '
 
-PROMPT2='%{$fg[$CARETCOLOR]%}◀%{$reset_color%} '
+PROMPT2='%{$fg[$CARETCOLOR]%}❰%{$reset_color%} '
 
 RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
 
@@ -53,6 +53,7 @@ function _git_time_since_commit() {
   if git log -1 > /dev/null 2>&1; then
     # Get the last commit.
     last_commit=$(git log --pretty=format:'%at' -1 2> /dev/null)
+    last_commit_abbreviated_hash=$(git log --pretty=format:'%h' -1 2> /dev/null)
     now=$(date +%s)
     seconds_since_last_commit=$((now-last_commit))
 
@@ -74,7 +75,7 @@ function _git_time_since_commit() {
     fi
 
     color=$ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL
-    echo "$color$commit_age%{$reset_color%}"
+    echo "$color$commit_age [$last_commit_abbreviated_hash]%{$reset_color%}"
   fi
 }
 
@@ -84,7 +85,7 @@ else
   CARETCOLOR="white"
 fi
 
-MODE_INDICATOR="%{$fg_bold[yellow]%}❮%{$reset_color%}%{$fg[yellow]%}❮❮%{$reset_color%}"
+MODE_INDICATOR="%{$fg_bold[yellow]%}❬%{$reset_color%}%{$fg[yellow]%}❬❬%{$reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"

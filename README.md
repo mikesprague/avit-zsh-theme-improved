@@ -13,6 +13,4 @@ has been tweaked and an abbreviated commit hash has been added).
 
 #### Original Avit Theme
 
-Note: Thia screenshot was taken from the [Oh My Zsh Wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/themes#avit)
-
 ![Screenshot of Original Avit Zsh Theme](https://raw.githubusercontent.com/mikesprague/avit-zsh-theme-improved/master/screenshots/avit-original.png "Screenshot of Original Avit Zsh Theme")
